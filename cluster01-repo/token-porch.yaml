@@ -1,8 +1,9 @@
 apiVersion: infra.nephio.org/v1alpha1
 kind: Token
 metadata: # kpt-merge: default/example-site-name-access-token-porch
-  name: default-access-token-porch
+  name: cluster01-access-token-porch
   namespace: default
   annotations:
     internal.kpt.dev/upstream-identifier: infra.nephio.org|Token|default|example-site-name-access-token-porch
+    nephio.org/site: cluster01
 spec: {}
