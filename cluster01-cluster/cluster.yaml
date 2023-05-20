@@ -4,6 +4,7 @@ metadata: # kpt-merge: /example
   name: cluster01-cluster
   annotations:
     internal.kpt.dev/upstream-identifier: 'cluster.x-k8s.io|Cluster|default|example'
+    nephio.org/site: cluster01
 spec:
   clusterNetwork:
     pods:
