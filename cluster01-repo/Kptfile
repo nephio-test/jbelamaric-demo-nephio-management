@@ -22,5 +22,9 @@ info:
   description: Provisions a Gitea repo for a Nephio cluster
 pipeline:
   mutators:
+  - name: PackageVariant.cluster01-repo..0
+    image: gcr.io/kpt-fn/set-annotations:v0.1.4
+    configMap:
+      nephio.org/site: cluster01
   - image: gcr.io/kpt-fn/starlark:v0.4.3
     configPath: set-values.yaml
