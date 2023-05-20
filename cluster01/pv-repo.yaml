@@ -1,0 +1,14 @@
+apiVersion: config.porch.kpt.dev/v1alpha1
+kind: PackageVariant
+metadata: # kpt-merge: /example-repo
+  name: example-repo
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-repo'
+spec:
+  upstream:
+    package: repo
+    repo: demo-packages
+    revision: v1
+  downstream:
+    package: example-repo
+    repo: mgmt
