@@ -1,0 +1,22 @@
+apiVersion: config.porch.kpt.dev/v1alpha1
+kind: PackageVariant
+metadata: # kpt-merge: /example-cluster
+  name: cluster01-cluster
+  annotations:
+    internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-cluster'
+spec:
+  upstream:
+    package: nephio-cluster-capi-kind
+    repo: demo-packages
+    revision: v1
+  downstream:
+    package: cluster01-cluster
+    repo: mgmt
+  packageContext:
+    data:
+      siteName: cluster01
+  pipeline:
+    mutators:
+    - image: gcr.io/kpt-fn/set-annotations:v0.1.4
+      configMap:
+        nephio.org/site: cluster01
