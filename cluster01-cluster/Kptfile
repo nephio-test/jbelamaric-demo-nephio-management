@@ -22,5 +22,9 @@ info:
   description: provisions a Nephio workload cluster using KinD via CAPI
 pipeline:
   mutators:
+  - name: PackageVariant.cluster01-cluster..0
+    image: gcr.io/kpt-fn/set-annotations:v0.1.4
+    configMap:
+      nephio.org/site: cluster01
   - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
     configPath: apply-replacements.yaml
