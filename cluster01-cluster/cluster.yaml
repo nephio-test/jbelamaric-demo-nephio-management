@@ -1,7 +1,7 @@
 apiVersion: cluster.x-k8s.io/v1beta1
 kind: Cluster
 metadata: # kpt-merge: /example
-  name: example
+  name: cluster01-cluster
   annotations:
     internal.kpt.dev/upstream-identifier: 'cluster.x-k8s.io|Cluster|default|example'
 spec:
