@@ -1,0 +1,31 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /cluster01-repo
+  name: cluster01-repo
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: kpt.dev|Kptfile|default|cluster01-repo
+    nephio.org/site: cluster01
+upstream:
+  type: git
+  git:
+    repo: https://github.com/johnbelamaric/nephio-testorg-packages.git
+    directory: nephio-repo-gitea
+    ref: nephio-repo-gitea/v2
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/johnbelamaric/nephio-testorg-packages.git
+    directory: nephio-repo-gitea
+    ref: nephio-repo-gitea/v2
+    commit: c79118a56d3d003632cef22aa641d45ddf3d844d
+info:
+  description: Provisions a Gitea repo for a Nephio cluster
+pipeline:
+  mutators:
+  - name: PackageVariant.cluster01-repo..0
+    image: gcr.io/kpt-fn/set-annotations:v0.1.4
+    configMap:
+      nephio.org/site: cluster01
+  - image: gcr.io/kpt-fn/starlark:v0.4.3
+    configPath: set-values.yaml
