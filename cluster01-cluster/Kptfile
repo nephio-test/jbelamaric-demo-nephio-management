@@ -1,0 +1,26 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /cluster01-cluster
+  name: cluster01-cluster
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|cluster01-cluster'
+upstream:
+  type: git
+  git:
+    repo: https://github.com/johnbelamaric/nephio-testorg-packages.git
+    directory: nephio-cluster-capi-kind
+    ref: nephio-cluster-capi-kind/v1
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/johnbelamaric/nephio-testorg-packages.git
+    directory: nephio-cluster-capi-kind
+    ref: nephio-cluster-capi-kind/v1
+    commit: 68e57c467b2474b6a306e1cce298af91db62ce74
+info:
+  description: provisions a Nephio workload cluster using KinD via CAPI
+pipeline:
+  mutators:
+  - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
+    configPath: apply-replacements.yaml
