@@ -1,17 +1,17 @@
 apiVersion: config.porch.kpt.dev/v1alpha1
 kind: Repository
 metadata: # kpt-merge: default/example-site-name
-  name: example-site-name
+  name: default
   namespace: default
   annotations:
-    internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|Repository|default|example-site-name'
+    internal.kpt.dev/upstream-identifier: config.porch.kpt.dev|Repository|default|example-site-name
 spec:
   content: Package
   deployment: true
   git:
     branch: main
     directory: /
-    repo: http://gitea-http.gitea.svc.cluster.local:3000/nephio/example-site-name.git
+    repo: http://gitea-http.gitea.svc.cluster.local:3000/nephio/default.git
     secretRef:
-      name: example-site-name-access-token-porch
+      name: default-access-token-porch
   type: git

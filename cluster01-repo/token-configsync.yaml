@@ -1,8 +1,8 @@
 apiVersion: infra.nephio.org/v1alpha1
 kind: Token
 metadata: # kpt-merge: config-management-system/example-site-name-access-token-config-sync
-  name: example-site-name-access-token-config-sync
+  name: default-access-token-config-sync
   namespace: config-management-system
   annotations:
-    internal.kpt.dev/upstream-identifier: 'infra.nephio.org|Token|config-management-system|example-site-name-access-token-config-sync'
+    internal.kpt.dev/upstream-identifier: infra.nephio.org|Token|config-management-system|example-site-name-access-token-config-sync
 spec: {}
