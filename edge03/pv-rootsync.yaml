@@ -4,6 +4,8 @@ metadata: # kpt-merge: /example-rootsync
   name: edge03-rootsync
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-rootsync'
+  labels:
+    nephio.org/site-type: edge
 spec:
   annotations:
     approval.nephio.org/policy: initial
