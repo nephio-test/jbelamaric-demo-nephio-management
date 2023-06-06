@@ -22,5 +22,9 @@ info:
   description: nephio workload cluster package
 pipeline:
   mutators:
+  - name: PackageVariant.edge-clusters-97bba30d0a8aec8dd7e0bd3c3e177823e1a4f722..0
+    image: gcr.io/kpt-fn/set-labels:v0.2.0
+    configMap:
+      nephio.org/site-type: edge
   - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
     configPath: apply-replacements.yaml
