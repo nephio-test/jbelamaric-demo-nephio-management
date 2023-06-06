@@ -4,6 +4,8 @@ metadata: # kpt-merge: /example-kindnet
   name: edge04-kindnet
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-kindnet'
+  labels:
+    nephio.org/site-type: edge
 spec:
   annotations:
     approval.nephio.org/policy: initial
