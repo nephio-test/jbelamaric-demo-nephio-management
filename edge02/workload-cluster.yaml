@@ -4,8 +4,6 @@ metadata: # kpt-merge: /example
   name: edge02
   annotations:
     internal.kpt.dev/upstream-identifier: 'infra.nephio.org|WorkloadCluster|default|example'
-  labels:
-    nephio.org/site-type: edge
 spec:
   # Since injection only injects the spec, we need the name here as
   # well as in metadata.
