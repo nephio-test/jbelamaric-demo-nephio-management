@@ -4,6 +4,8 @@ metadata: # kpt-merge: /example-cluster
   name: edge01-cluster
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-cluster'
+  labels:
+    nephio.org/site-type: edge
 spec:
   annotations:
     approval.nephio.org/policy: initial

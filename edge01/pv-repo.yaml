@@ -4,6 +4,8 @@ metadata: # kpt-merge: /example-repo
   name: edge01-repo
   annotations:
     internal.kpt.dev/upstream-identifier: 'config.porch.kpt.dev|PackageVariant|default|example-repo'
+  labels:
+    nephio.org/site-type: edge
 spec:
   annotations:
     approval.nephio.org/policy: initial
