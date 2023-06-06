@@ -1,0 +1,26 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata: # kpt-merge: /edge03
+  name: edge03
+  annotations:
+    config.kubernetes.io/local-config: "true"
+    internal.kpt.dev/upstream-identifier: 'kpt.dev|Kptfile|default|edge03'
+upstream:
+  type: git
+  git:
+    repo: https://github.com/nephio-project/nephio-example-packages.git
+    directory: nephio-workload-cluster
+    ref: nephio-workload-cluster/v6
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/nephio-project/nephio-example-packages.git
+    directory: nephio-workload-cluster
+    ref: nephio-workload-cluster/v6
+    commit: ce0e222636400e6e9aa1a8a4c3b54e26b6e4be7e
+info:
+  description: nephio workload cluster package
+pipeline:
+  mutators:
+  - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
+    configPath: apply-replacements.yaml
